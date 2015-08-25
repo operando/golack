@@ -1,5 +1,7 @@
 # golack
 
+**娯楽で作ったgolack**
+
 ## Description
 
 ## Usage
