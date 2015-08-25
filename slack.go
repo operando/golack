@@ -19,15 +19,18 @@ type Slack struct {
 	Channel   string `json:"channel" toml:"channel"`       //#部屋名
 }
 
-type Payload struct {
-	IncomingURL string
-	Slack       Slack
+type Webhook struct {
+	URL string `toml:"url"`
 }
 
-func Post(payload Payload) {
+type Payload struct {
+	Slack Slack
+}
+
+func Post(payload Payload, webhook Webhook) {
 	params, _ := json.Marshal(payload.Slack)
 	resp, _ := http.PostForm(
-		payload.IncomingURL,
+		webhook.URL,
 		url.Values{ParameterPayload: {string(params)}},
 	)
 	body, _ := ioutil.ReadAll(resp.Body)
