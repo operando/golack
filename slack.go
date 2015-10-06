@@ -17,6 +17,7 @@ type Slack struct {
 	IconEmoji string `json:"icon_emoji" toml:"icon_emoji"` //アイコン絵文字
 	IconURL   string `json:"icon_url" toml:"icon_url"`     //アイコンURL（icon_emojiが存在する場合は、適応されない）
 	Channel   string `json:"channel" toml:"channel"`       //#部屋名
+	LinkNames bool   `json:"link_names" toml:"link_names"`
 }
 
 type Webhook struct {
